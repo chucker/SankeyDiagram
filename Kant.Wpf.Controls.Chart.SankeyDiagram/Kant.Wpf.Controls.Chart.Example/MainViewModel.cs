@@ -21,6 +21,28 @@ namespace Kant.Wpf.Controls.Chart.Example
 
         public MainViewModel()
         {
+            ShowEL = new RelayCommand(() =>
+            {
+                var datas = new List<SankeyData>();
+
+                datas.Add(new SankeyData("Abrechnung", "Rechnung", 1));
+                datas.Add(new SankeyData("Projekt", "Rechnung", 10));
+
+                datas.Add(new SankeyData("Rechnung", "Rechnungsposition", 10));
+                datas.Add(new SankeyData("Rechnung", "Firma", 1));
+                datas.Add(new SankeyData("Rechnung", "Mitarbeiter", 1));
+
+                //var count = 0;
+
+                //while (count < 100)
+                //{
+                //datas.Add(new SankeyData(random.Next(9).ToString(), random.Next(10, 19).ToString(), random.Next(55, 155)));
+                //    count++;
+                //}
+
+                SankeyDatas = datas;
+            });
+
             random = new Random();
             sankeyLabelStyle1 = (Style)Application.Current.FindResource("SankeyLabelStyle1");
             sankeyLabelStyle2 = (Style)Application.Current.FindResource("SankeyLabelStyle2");
@@ -151,6 +173,8 @@ namespace Kant.Wpf.Controls.Chart.Example
                 }));
             }
         }
+
+        public ICommand ShowEL { get;  }
 
         private ICommand clearDiagram;
         public ICommand ClearDiagram

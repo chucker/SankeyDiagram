@@ -50,6 +50,8 @@
                         Width="175"
                         Height="20"
                         Command="{Binding ChangeStyles}" />
+
+                <Button Margin="10,0,0,0" Command="{Binding ShowEL}">ShowEL</Button>
             </StackPanel>
             <StackPanel Grid.Row="1"
                         Orientation="Horizontal"
